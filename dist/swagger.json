@@ -1,33 +1,115 @@
 {
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "text/plain"
-  ],
-  "swagger": "2.0",
-  "info": {
-    "description": "Schemes:\nhttp",
-    "title": "Swagger Demo",
-    "version": "0.0.1"
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "A silly example",
+    "version" : "0.1.0",
+    "title" : "Timeofday"
   },
-  "host": "localhost",
-  "basePath": "/",
-  "paths": {
-    "/hostname": {
-      "get": {
-        "description": "GetHostname get hostname API",
-        "operationId": "getHostname"
+  "basePath" : "/timeofday/v1",
+  "schemes" : [ "http" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/time" : {
+      "get" : {
+        "description" : "Returns time of day.",
+        "operationId" : "TimeGet",
+        "parameters" : [ {
+          "name" : "timezone",
+          "in" : "query",
+          "description" : "Timezone to return",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns the time of day.",
+            "schema" : {
+              "$ref" : "#/definitions/timeofday"
+            }
+          },
+          "404" : {
+            "description" : "Time zone not found",
+            "schema" : {
+              "$ref" : "#/definitions/errorResponse"
+            }
+          },
+          "500" : {
+            "description" : "Something has gone horribly wrong",
+            "schema" : {
+              "$ref" : "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "post" : {
+        "description" : "Returns time of day.",
+        "operationId" : "TimePost",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "timezone",
+          "description" : "Timezone to return",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/timezone"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns the time of day.",
+            "schema" : {
+              "$ref" : "#/definitions/timeofday"
+            }
+          },
+          "404" : {
+            "description" : "Time zone not found",
+            "schema" : {
+              "$ref" : "#/definitions/errorResponse"
+            }
+          },
+          "500" : {
+            "description" : "Something has gone horribly wrong",
+            "schema" : {
+              "$ref" : "#/definitions/errorResponse"
+            }
+          }
+        }
       }
     }
   },
-  "responses": {
-    "getHostnameOK": {
-      "description": "GetHostnameOK returns the hostname of the machine",
-      "headers": {
-        "body": {
-          "type": "string",
-          "description": "the hostname of the machine\nIn: Body"
+  "definitions" : {
+    "timezone" : {
+      "type" : "object",
+      "required" : [ "timezone" ],
+      "properties" : {
+        "timezone" : {
+          "type" : "string",
+          "minLength" : 3,
+          "default" : "UTC"
+        }
+      }
+    },
+    "timeofday" : {
+      "type" : "object",
+      "properties" : {
+        "timeofday" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "timeofday" : "timeofday"
+      }
+    },
+    "errorResponse" : {
+      "type" : "object",
+      "required" : [ "message" ],
+      "properties" : {
+        "code" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "message" : {
+          "type" : "string"
         }
       }
     }
