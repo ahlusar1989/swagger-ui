@@ -1,5 +1,5 @@
-hash: 79ec7bfa527ef4db0d699ef15012f5a98ccbe3672e25790f71d651aa3964ee4f
-updated: 2018-07-28T13:39:02.182977-04:00
+hash: 6113b460e9952e1b1dbade7d9b0b6c77ba8bb05157d3f08bf9f8c28f169a2b99
+updated: 2018-07-28T16:23:17.433752-04:00
 imports:
 - name: github.com/alexflint/go-arg
   version: f7c0423bd11ee80ab81d25c6d46f492998af8547
@@ -38,7 +38,7 @@ imports:
 - name: github.com/go-openapi/validate
   version: 9a6e517cddf1ddd47449be5d06a6a786e51d9986
 - name: github.com/jessevdk/go-flags
-  version: 1c38ed7ad0cc3d9e66649ac398c30e45f395c4eb
+  version: c6ca198ec95c841fdb89fc0de7496fed11ab854e
 - name: github.com/mailru/easyjson
   version: d5012789d6659eeed305f54c1b1542e7b65829e6
   subpackages:
