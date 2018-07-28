@@ -1,0 +1,35 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "text/plain"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "Schemes:\nhttp",
+    "title": "Swagger Demo",
+    "version": "0.0.1"
+  },
+  "host": "localhost",
+  "basePath": "/",
+  "paths": {
+    "/hostname": {
+      "get": {
+        "description": "GetHostname get hostname API",
+        "operationId": "getHostname"
+      }
+    }
+  },
+  "responses": {
+    "getHostnameOK": {
+      "description": "GetHostnameOK returns the hostname of the machine",
+      "headers": {
+        "body": {
+          "type": "string",
+          "description": "the hostname of the machine\nIn: Body"
+        }
+      }
+    }
+  }
+}
