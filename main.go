@@ -5,9 +5,9 @@
 package main
 
 import (
-	_ "github.com/ahlusar1989/swagger-demo/swagger/restapi"
-	"github.com/ahlusar1989/swagger-demo/swagger/restapi/operations"
-	_ "github.com/ahlusar1989/swagger-demo/swagger/restapi/operations"
+	_ "github.com/ahlusar1989/swagger-ui/swagger/restapi"
+	"github.com/ahlusar1989/swagger-ui/swagger/restapi/operations"
+	_ "github.com/ahlusar1989/swagger-ui/swagger/restapi/operations"
 	_ "github.com/go-openapi/loads"
 	"github.com/go-openapi/runtime/middleware"
 	_ "github.com/go-openapi/runtime/middleware"
@@ -16,7 +16,7 @@ import (
 	"os"
 	"github.com/alexflint/go-arg"
 	"github.com/go-openapi/loads"
-	"github.com/ahlusar1989/swagger-demo/swagger/restapi"
+	"github.com/ahlusar1989/swagger-ui/swagger/restapi"
 
 	"net/http"
 )
